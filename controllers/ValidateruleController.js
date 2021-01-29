@@ -161,13 +161,3 @@ if(conditions.hasOwnProperty(rule['condition'])){
 
 
 
-// {
-//     rule: { field: 'missions', condition: 'gte', condition_value: 30 },
-//     data: {
-//       name: 'James Holden',
-//       crew: 'Rocinante',
-//       age: 34,
-//       position: 'Captain',
-//       missions: 45
-//     }
-//   }
