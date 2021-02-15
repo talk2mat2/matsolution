@@ -1,24 +1,20 @@
 
 
-//different conditions rules
+//different conditions rules objects
 const conditions={
     gte:(item1,item2)=>{
-        console.log("i was called gte")
-        console.log(item1,item2)
         return item1>=item2
         },
-        neq:(item1,item2)=>{
+    neq:(item1,item2)=>{
         return item1!=item2
         },
-        gt:(item1,item2)=>{
+    gt:(item1,item2)=>{
         return item1>item2
         },
-        eq:(item1,item2)=>{
-        
+    eq:(item1,item2)=>{
         return item1==item2
-       
         },
-        contains:(item1,item2)=>{
+    contains:(item1,item2)=>{
             return item1===item2
             }
 }
@@ -125,7 +121,7 @@ return res.status(400).json(
       }
 )}
 
-//check for nexted value
+//check for nexted value in data field
 if(rule['field'].includes(".")){
    const level1=rule['field'].split(".")[0]
    const level2=rule['field'].split(".")[1]
@@ -153,55 +149,15 @@ if(conditions.hasOwnProperty(rule['condition'])){
     const item2=rule['condition_value']
     //we call on the function from condtional objects by supllying the arguments
 
-
+//calling the calidation function
     ValidatorFunction(conditions,rule,item1,item2,req,res)
-    // const isValidated=conditions[rule['condition']](item1,item2)
-    // if (isValidated){
-
-    //     return  res.status(200).json({
-    //         "message": `field ${rule['field']} successfully validated.`,
-    //         "status": "success",
-    //         "data": {
-    //           "validation": {
-    //             "error": false,
-    //             "field": rule['field'],
-    //             "field_value": item1,
-    //             "condition": rule['condition'],
-    //             "condition_value": item2
-    //           }
-    //         }
-    //       })
-    // }
-    // else return res.status(400).json({
-    //     "message": `field ${rule['field']} failed validation.`,
-    //     "status": "error",
-    //     "data": {
-    //       "validation": {
-    //         "error": true,
-    //         "field": rule['field'],
-    //         "field_value": item1,
-    //         "condition": rule['condition'],
-    //         "condition_value": item2
-    //       }
-    //     }
-    //   })
 
 }
  
-res.status(200).json({"":""})
+// res.status(200).json({"":""})
 }
 
 
 
 
 
-// {
-//     rule: { field: 'missions', condition: 'gte', condition_value: 30 },
-//     data: {
-//       name: 'James Holden',
-//       crew: 'Rocinante',
-//       age: 34,
-//       position: 'Captain',
-//       missions: 45
-//     }
-//   }
